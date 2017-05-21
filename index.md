@@ -1,37 +1,54 @@
-## Welcome to GitHub Pages
+<html>
+<head>
 
-You can use the [editor on GitHub](https://github.com/baaahareee/Offline/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+<style>
+@font-face {
+   font-family: fontt;
+   src: url('NAZANIN.TTF');
+}
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+p {
+   font-family: fontt;
+}
+</style>
 
-### Markdown
+</head>
+<body>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+<p dir="rtl">
+<b>آفلاین</b>
+  یک ویژگی است و ضروری است که ما آن را از ابتدای پروژه در نظر بگیریم. به ندرت رخ می دهد که به اضافه کردن پشتیبانی آفلاین از ابتدای توسعه اپلیکیشن تاکید داشته باشیم. مشتریان موبایل از ابتدا طوری طراحی می شوند که آفلاین را پشتیبانی کنند که اجازه دسترسی وقتی که هیچ برقراری ارتباطی امکان پذیر نیست وجود داشته باشد. و داده ها زمانی که اینترنت دردسترس است به طور شفاف همگام می شوند   .
+</p>
 
-```markdown
-Syntax highlighted code block
+<h2 dir="rtl">
+دستورالعمل ها ی اصلی:
+</h2>
 
-# Header 1
-## Header 2
-### Header 3
+<p dir="rtl">
+1)	جدا  کردن اپلیکیشن از سرور:  از نظر تاریخی وقتی محتویات وب را تولید می¬کنیم, سرور نقش اصلی را در lifting ها-ی سنگین دارد. داده ها در دیتابیس ذخیره می  شود و از طریق کد سرور قابل دسترسی است سپس دست¬ کاری می  -شود و از طریق یک مجموعه از قالب ها به html ارایه می شود. آفلاین ,کل پشته MCV به سمت کد کلاینت انتقال می¬ دهد و سمت سرور تنها شامل JSON API  است. این باعث می ¬ شود که سرور به طور عمده بدون منطق باشد و به آسانی بتوانیم برای آن تست های واحد بنویسیم.
+</p>
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+<p dir="rtl">
+2)	ایجاد بسته بندی ها ی API object در سمت کد کلاینت: API object ایجاد کنید که نشان دهنده ی عملکرد آن است . این باعث جدایی بهتر کد می شود در نتیجه دیباگ کردن و تست کردن  آسان تر میشود.  Object ای که ایجاد می¬شود به طور داخلی از ajax استفاده می¬ کند اما از نظر بقیه برنامه جزییات پیاده سازی نامرتبط است.
+</p>
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+<p dir="rtl">
+3)	جداکردن به روزرسانی داده از ذخیره آن: از شی( object )کنترل کننده داده برای ذخیره و برنامه ریزی به¬روزرسانی استفاده کنید و تمام درخواست ها را از طریق این proxy object انجام دهید. این شی به عنوان proxy  میان شی   API و بقیه اپلیکیشن عمل می¬کند. این شی داده جدید وظیفه ایجاد کردن درخواست به   APIبرای به روز¬رسانی و پردازش پاسخ¬ها را بر¬عهده دارد.  با صدا نزدن سرور به طور مستقیم قادر خواهید بود داده را به طور محلی کش کنید.این شی باید بتواند خود را چندبخشی کند هم چنین باید بتواند این بخش ها  را دوباره  به حافظه بخواند.
+بهترین روش برای وب آفلاین استفاده از صف فرمان است.در¬واقع حالت رندر کلاینت, حالت ضمنی سرور به اضافه صف فرمان سمت کلاینت است.  عملیات کاربر  درخواستی به سرور نمی دهد تا UI را به روزرسانی کند. درعوض به طور مستقیم  صف فرمان محلی را می افزاید که حالت UI را به روزرسانی می کند. سپس کلاینت شروع به ارتباط با سرور می کند تا   تغییرات محلی واقعی را ایجاد کند.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/baaahareee/Offline/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+</p>
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<p dir="rtl">
+تا زمانی که صف فرمان خالی نیست, ,spinner  UI  یا معادل آن را نشان می دهد. اگر فرمان به علت مشکلات شبکه فهمیده نشود, UI کاربردی باقی می ماند اما با اخطار واضح که قرار است تغییرات همگام شود.  استفاده از API  به¬عنوان وضعیت اتصال تا اطمینان پیدا  کنیم که صف فرمان همگامی را  با وصل شدن اینترنت ادامه می دهد مفید است.
+هم چنین باید حالت هایی که که سرور به روزرسانی شده است و زمانی که اینرنت وصل شده است اضافه کردن فرمان های کلاینت دیگر مهم نیست را در نظر بگیریم. در این حالت باید تغییرات را قبل از اضافه کردن حالت جدید ادغام کنیم.
+
+</p>
+
+
+</body>
+</html>
